@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <title>Welcome to SOUS CHEF</title>
+
+    <link rel="icon" href="/static/images/iconchoi.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mrs+Sheppards&family=Paytone+One&display&family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.carousel').carousel({interval: 4000});
+        });
+    </script>
+</head>
+<style>
+    .form-control {
+        width: 250px;
+    }
+
+    
+    li{
+        margin: 10px 0px 0px 50px;
+        list-style-type: none;
+    }
+
+    body {
+        margin-bottom: -550px;
+    }
+
+    .bg_color{
+            background-color: rgba(255, 255, 255, 0.85);
+    }
+    
+    .main-title {
+            font-family: 'Paytone One', sans-serif;
+            text-align: center;
+            font-size: 50px;
+            color: black;
+        }
+
+    .main-title:hover {
+        color: rgb(60, 59, 59);
+        text-decoration: none;
+    }
+
+    .mainimg {
+        margin-top: 20px;
+        line-height: 25px;
+    }
+
+    .mainimg p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 20px;
+        text-align:left;
+        font-style: italic;
+    }
+
+
+
+/* //////////////////LOG/REG CONTAINER/////////////////////////////// */
+
+
+    #wrapper {
+        /* background-image: url('/static/images/wp3105346-foods-wallpapers.jpg'); */
+        /* background-color: gray; */
+        /* height: 100rem;
+        width: 100rem; */
+    }
+
+    .container {
+        margin: 100px 0px 0px 380px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+        width: 65rem;
+
+
+    }
+    .reg_container {
+        height: 30rem;
+        width: 30rem;
+        background-color: white;
+        padding-left: 110px;
+        padding-top: 40px;
+        border-radius: 8px;
+
+    }
+
+    .login_container {
+        height: 30rem;
+        width: 30rem;
+        background-color: white;
+        padding-left: 110px;
+        padding-top: 40px;
+        border-radius: 8px;
+    }
+
+
+/* --------------------------------- CAROUSEL JUNK -------------------------------------------- */
+
+    .carousel { z-index: -99; } /* keeps this behind all content */
+    .carousel .item {
+        position: fixed; 
+        width: 140rem; 
+        height: 70rem;
+        bottom: 1px;
+        left: -0.5rem;
+        -webkit-transition: opacity 1s;
+        -moz-transition: opacity 1s;
+        -ms-transition: opacity 1s;
+        -o-transition: opacity 1s;
+        transition: opacity 1s;
+    }
+    .carousel .one {
+        background: url('/static/images/apple_pie.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+    }
+    .carousel .two {
+        background: url('/static/images/choco_cookies.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+    }
+    .carousel .three {
+        background: url('/static/images/marshmallow.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+    }
+
+    .carousel .four {
+        background: url('/static/images/madeleines.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+    }
+
+    .carousel .five {
+        background: url('/static/images/tiramisu.jpg');
+        background-size: cover;
+        -moz-background-size: cover;
+    }
+
+    .carousel .active .left {
+        left:0;
+        opacity:0;
+        z-index:2;
+}
+</style>
+
+<body>
+
+
+    <div id="myCarousel" class="carousel container slide" data-ride="carousel">
+        <div class="carousel-inner">
+                <div class="carousel-item active item one" data-interval="4000"></div>
+                <div class=" carousel-item item two" data-interval="4000"></div>
+                <div class="carousel-item item three" data-interval="4000"></div>
+                <div class="carousel-item item four" data-interval="4000"></div>
+                <div class="carousel-item item five" data-interval="4000"></div>
+        </div>
+    </div>
+    
+
+    <nav class="navbar bg_color">
+        <div class="mainimg">
+            <a class="main-title" href="">SOUS CHEF</a>
+            <p>Recipe Finder</p>
+        </div>
+    </nav>
+    
+        <div id="wrapper">
+            <div class="row px-6 m-5">
+                
+                <div class= "container">
+                    <div class="reg_container">
+                        <!-- <div class="col-3 px-5"> -->
+                            <h5>New User Registration</h5>
+                            <form action="/reg_process" method="post">
+                                {% csrf_token %}
+                                <input class="form-control" type="text" name="fname" placeholder="First Name"><br>
+                                <input class="form-control" type="text" name="lname" placeholder="Last Name"><br>
+                                <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                                <input class="form-control" type="password" name="password" placeholder="Password"><br>
+                                <input class="form-control" type="password" name="confirm_password" placeholder="Confirm Password"><br>
+                                <input class="btn btn-primary" type="submit" value="Register">
+                            </form>
+                        <!-- </div> -->
+                    </div>
+                    <div class="login_container">
+                        <!-- <div class="col-2 px-3"> -->
+                            <h5>Login</h5>
+                            <form action="/login" method="post">
+                                {% csrf_token %}
+                                <input class="form-control" type="text" name="email" placeholder="Email"><br>
+                                <input class="form-control" type="password" name="password" placeholder="Password">
+                                <small id="emailHelp" class="form-text text-muted">Never share your password with anyone
+                                    else.</small><br>
+                                <input class="btn btn-primary" type="submit" value="Login">
+                            </form><br>
+                        <!-- </div> -->
+
+                            {% for message in messages %}
+                            <p style="color: red;">{{ message }}</p>
+                            {% endfor %}
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+</body>
+
+</html>
+
+
+

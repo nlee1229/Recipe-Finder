@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .input_img{
+            width: 25rem;
+        }
+    </style>
+</head>
+<body>
+    {% if request.session.user_id == 8 %}
+
+    <h2><a href = "/input">Go Back to Recipe Page</a></h2>
+    
+    <h2>Ingredients</h2>
+    <form action="/process_ingredient/{{this_recipe.id}}" method="POST">
+        {% csrf_token %}
+        <label for="ingredient">Ingredient: </label>
+        <input type="text" name="ingredient" placeholder="ingredient"><br>
+
+        <label for="qty">Quantity: </label>
+        <input type="text" name="qty" placeholder="Qty"><br>
+
+        <label for="unit">Unit of measurment: </label>
+        <select name="unit" placeholder="Unit">
+            <option value="oz">oz</option>
+            <option value="lbs">lbs</option>
+            <option value="quarts">quarts</option>
+            <option value="cup">cup</option>
+            <option value="pint">pint</option>
+            <option value="gallon">gallon</option>
+            <option value="kg">kg</option>
+            <option value="g">g</option>
+            <option value="tsp">teaspoon</option>
+            <option value="tbsp">tablespoon</option>
+            <option value="mL">mL</option>
+            <option value="L">L</option>
+            <option value="unit">unit</option>
+            <option value="slice">slice</option>
+            <option value="strip">strip</option>
+        </select><br>
+        <button class="btn btn-danger">Submit</button>
+    </form>
+    {% for i in this_recipe.recipe_imgs.all %}
+
+    
+    <img class="input_img" src="{{i.img.url}}" alt="recipe-img">
+    <a href="/delimg/{{i.id}}/{{this_recipe.id}}">Delete Image</a>
+
+    {% endfor %}
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Difficulty</th>
+            <th>Total time</th>
+            <th>Description</th>
+            <th>Instructions</th>
+            <th>Ingredients</th>
+        </tr>
+
+        <tr>
+            <td>{{this_recipe.title}}</td>
+            <td>{{this_recipe.level}}</td>
+            <td>{{this_recipe.cooktime}}</td>
+            <td>{{this_recipe.desc}}</td>
+            <td>{{this_recipe.instructions}}</td>
+            {% for j in this_recipe.ingredients.all %}
+            <td>{{j.name}} {{j.qty}} {{j.unit}}</td>
+            <td><a href="/del_ing/{{j.id}}/{{this_recipe.id}}">Delete</a></td>
+            {% endfor %}
+        </tr>
+    </table>
+
+    <form action="/addimg/{{this_recipe.id}}" method="post">
+        {% csrf_token %}
+        <input type="file" name="img" placeholder="Image"><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% else %}
+
+    <h2>404 Not Found!</h2><br>
+    <p>Oops, something went wrong. Please <a href="/home">click here</a> to redirect.</p>
+
+    {% endif %}
+</body>
+</html>

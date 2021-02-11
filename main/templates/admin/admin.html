@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Secret</title>
+    <link rel="icon" href="/static/images/iconchoi.png">
+
+</head>
+
+<body>
+    {% if request.session.user_id == 8 %}
+
+    <h2>Welcome to the secret admin page!</h2>
+    <p>This was created by Marvin, Hira, Dylan, Nicholas, Eric!</p>
+    <ul>
+        <li><a href="/input">Input new Recipe then Ingredients</a></li>
+        <li><a href="/list_ingredients">Ingredient List Page</a></li>
+        <li><a href="/home">Home Page</a></li>
+        <li><a href="/logout">Logout</a></li>
+    </ul>
+    <p>Total Users: {{user|length}}</p>
+    <p>Total Recipes: {{recipe|length}}</p>
+    <p>Total Ingredients: {{ing|length}}</p>
+    <hr>
+    <div class="row">
+        <div class="col px-4 m-4">
+            {% if users %}
+            <h2>All Users in DataBase</h2>
+            <table class="table">
+                <thead class="thead-light">
+                    <tr>
+                        <th>ID</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Password (Secured)</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                {% for i in users %}
+                <tr>
+                    <td>{{i.id}}</td>
+                    <td>{{i.fname}}</td>
+                    <td>{{i.lname}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.password}}</td>
+                    <td><a class="btn btn-primary btn-sm" href="/delete/{{i.id}}">Delete User</a></td>
+                </tr>
+                {% endfor %}
+
+            </table>
+            {% endif %}
+        </div>
+
+        {% else %}
+
+        <h2>404 Not Found!</h2><br>
+        <p>Oops, something went wrong. Please <a href="/home">click here</a> to redirect.</p>
+
+        {% endif %}
+</body>
+
+</html>

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page | User Dashboard</title>
+    {% load static %}
+    <link rel="icon" href="/static/images/iconchoi.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+        integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Mrs+Sheppards&family=Paytone+One&display&family=Poppins:wght@500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            var availableTags = [
+                "Bacon Wrapped Hotdogs",
+                "Grilled Cheese",
+                "Oven Baked Sweet Potato Fries",
+                "Quick and Easy Home Fries",
+                "Pumpkin Pie",
+                "Mashed Potatoes",
+                "French Toast",
+                "Waldorf Salad",
+                "Cucumber, Peach, and Basil Salad",
+                "Simple Mac & Cheese",
+                "Chicken Fried Rice",
+                "Easy Guacamole",
+                "Beef Stroganoff",
+                "Marinated Pork Tenderloin",
+                "Turkey Ranch Wrap",
+                "Savory Cranberry Sauce",
+                "Apple Pie",
+                "Cranberry Stuffing",
+                "Sweet Potato Casserole With Marshmallows",
+                "Roasted Butternut Squash Soup",
+                "Spam Musubi",
+                "Deviled Eggs",
+                "Lasagna",
+                "Chocolate Chip Cookie",
+                "Roast Turkey",
+                "Good Old Fashioned Pancakes",
+                "Tiramisu Cake",
+                "French Madeleines",
+                "Chicken Tikka Masala",
+                "Doenjang Jjigae (Korean Soybean Paste Stew)",
+                "Korean Short Ribs (Galbi)",
+                "Peach Cobbler",
+                "Salmon",
+                "Macaron",
+                "Perfect Gravy",
+                "Japanese Ramen",
+                "Arancini Balls",
+                "Feijoada",
+                "Pao De Qeuijo",
+                "Coxinha",
+                "Fried Sweet Bananas",
+                "Thai Tea Boba",
+                "Horchata",
+
+            ];
+            $("#tags").autocomplete({
+                source: availableTags
+            });
+        });
+    </script>
+
+    <style>
+        .main-title {
+            font-family: 'Paytone One', sans-serif;
+            text-align: center;
+            font-size: 50px;
+            color: black;
+            /* margin: 0px; */
+        }
+
+        .main-title:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        .nav_color {
+            color: black;
+        }
+
+        .nav_color:hover {
+            color: black;
+            text-decoration: none;
+        }
+
+        .bg_color {
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+
+        .search_bar {
+            margin-left: 30rem;
+        }
+
+        .search {
+            width: 30rem;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        .greeting {
+            font-family: 'Mrs Sheppards', cursive;
+            font-size: 120px;
+            color: white;
+            margin-top: 230px;
+            text-shadow: 2px 2px 15px black;
+        }
+
+        #sub-greeting {
+            font-family: serif;
+            font-size: 40px;
+            color: white;
+            text-shadow: 2px 2px 15px black;
+        }
+
+        .block {
+            display: block;
+        }
+
+        .food_container {
+            margin-top: 15px;
+            display: block;
+        }
+
+        .food_box {
+            overflow: hidden;
+            margin: 15px;
+            height: 35rem;
+            width: 40rem;
+            padding: 20px 25px 0px 25px;
+            display: inline-block;
+            vertical-align: top;
+            background-image: url('static/images/paper_text.jpg');
+            border-radius: 10px;
+            box-shadow: 6px 6px 7px rgba(0, 0, 0, 0.619)
+        }
+
+
+
+        #food_box_img {
+            height: 17rem;
+            width: 27rem;
+            border: 10px solid white;
+            border-radius: 22%;
+        }
+
+        .parallax {
+            background-image: url('static/images/home_bg.jpg');
+            min-height: 900px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .recipe_box {
+            background-color: gray;
+            outline: 1px solid black;
+            box-shadow: 2px 2px 2px black;
+        }
+
+        .space {
+            padding-left: 5.2rem;
+
+        }
+
+        h3 {
+            font-family: 'Paytone One', sans-serif;
+            font-size: 30px;
+            color: rgb(26, 26, 26);
+        }
+
+        body {
+            text-align: center;
+            background-image: url('/static/images/chop_bg.jpg');
+            padding-bottom: 20rem;
+            /* background-image: linear-gradient(45deg, rgb(152, 152, 152), white, rgb(152, 152, 152)); */
+        }
+
+        img {
+            background-image: url('images/home_bg.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            width: 100%;
+
+        }
+
+        .mainimg {
+            /* margin-top: 20px; */
+            line-height: 13px;
+        }
+
+        .mainimg p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            text-align: left;
+            font-style: italic;
+            margin-bottom: 25px;
+        }
+
+        /* ///////////////////////VIEW/FAVORITE RECIPE BUTTON ///////////////////////////////// */
+
+
+        .button-3 {
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            /* float: left; */
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin: 15px 0 40px 0px;
+            background-color: white;
+            display: inline-block;
+        }
+
+        .button-3_recent {
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            /* float: left; */
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            box-sizing: border-box;
+            overflow: hidden;
+            margin: 15px 0 40px 40px;
+            background-color: white;
+            display: inline-block;
+        }
+
+        .button-3 a {
+            font-fargb(230, 95, 71)rial;
+            font-size: 16px;
+            color: rgb(31, 31, 31);
+            text-decoration: none;
+            line-height: 40px;
+            transition: all .5s ease;
+            z-index: 2;
+            position: relative;
+        }
+
+        .button-3_recent a {
+            font-fargb(230, 95, 71)rial;
+            font-size: 16px;
+            color: #3c3c3c;
+            text-decoration: none;
+            line-height: 40px;
+            transition: all .5s ease;
+            z-index: 2;
+            position: relative;
+        }
+
+        .eff-3 {
+            width: 140px;
+            height: 50px;
+            bottom: -50px;
+            background: rgb(13, 160, 116);
+            position: absolute;
+            transition: all .5s ease;
+            z-index: 1;
+        }
+
+        .eff-3_recent {
+            width: 140px;
+            height: 50px;
+            bottom: -50px;
+            background: #d6462d;
+            position: absolute;
+            transition: all .5s ease;
+            z-index: 1;
+        }
+
+        .button-3:hover .eff-3 {
+            bottom: 0;
+        }
+
+        .button-3_recent:hover .eff-3_recent {
+            bottom: 0;
+        }
+
+        .button-3:hover a {
+            color: #fff;
+        }
+
+        .button-3_recent:hover a {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="block">
+        <div class="parallax">
+            <nav class="navbar bg_color">
+                <div class="mainimg">
+                    <h1 class="main-title">SOUS CHEF</h1>
+                    <p>Recipe Finder</p>
+                </div>
+            </nav>
+
+            <nav class="sticky-top navbar navbar-expand-lg bg_color">
+                <ul class="navbar-nav ">
+                    <li class="nav-item space"><a class=" nav-link nav_color" href="/clear">Show All Recipes</a></li>
+                    <li class="nav-item space"><a class=" nav-link nav_color" href="/list_ingredients">Select
+                            Ingredients</a></li>
+                    <li class="nav-item space"><a class="nav-link nav_color" href="/account_user">My Favorites</a></li>
+                    <li class="nav-item space"><a class="nav-link nav_color" href="/logout">Logout</a></li>
+                    {% if request.session.user_id == 8 %}
+                    <li class="nav-item space"><a class="nav-link nav_color" href="/input"> Admin Recipe Page</a></li>
+                    {% endif %}
+                </ul>
+                <form class="form-inline search_bar" action="/search" method="get">
+                    <div class="ui-widget">
+                        <input id="tags" class=" mr-sm-2 search" type="text" name="search"
+                            placeholder="Search for recipe..." aria-label="Search">
+                    </div>
+                    <button class="btn btn-outline-dark my-2 my-sm-0">Search</button>
+                </form>
+            </nav>
+            <div class="greeting">
+                <p>Happy Thanksgiving,</p>
+                <p id="sub-greeting">from our family to yours!</p>
+            </div>
+        </div>
+    </div>
+
+    <h1>{{nosearch}}</h1>
+
+    <div class="food_container">
+
+        {% for recipe in list_of_recipes %}
+        <div class="food_box">
+            <h3>{{recipe.title}}</h3>
+            {% for i in recipe.recipe_imgs.all %}
+            <img id="food_box_img" src="{{i.img.url}}" alt="recipe-img">
+            {% endfor %}
+            <p>Difficulty Level: {{recipe.level}} | Prep Time: {{recipe.cooktime}}</p>
+            <p>{{recipe.desc}}</p>
+
+            <!-- <a class="btn btn-light" href="/recipeinfo/{{recipe.id}}">View Recipe</a> -->
+            <div class="button_contain">
+                <div class="button-3">
+                    <div class="eff-3"></div>
+                    <a href="/recipeinfo/{{recipe.id}}"> View Recipe </a>
+                </div>
+                <div class="button-3_recent">
+                    <div class="eff-3_recent"></div>
+                    <a href="/fav/{{recipe.id}}"> Favorite </a>
+                </div>
+            </div>
+            <!-- <a class="btn btn-dark" href="/fav/{{recipe.id}}">Favorite</a> -->
+        </div>
+        {% endfor %}
+    </div>
+
+
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if request.session.user_id == 8 %}
+
+    <h2>Editing {{recipe.title}}</h2>
+    <form action="/edit_proc/{{recipe.id}}" method="post">
+        {% csrf_token %}
+    <h3>Title</h3>
+    <input type="text" name="title" value="{{recipe.title}}"><br><br>
+    <h3>Description</h3>
+    <textarea name="desc"cols="30" rows="5">{{recipe.desc}}</textarea><br><br>
+    <h3>Difficulty Level</h3>
+    <input type="number" name="level" min="1" max="5" value="{{recipe.level}}"><br><br>
+    <h3>Cooking Time</h3>
+    <input type="text" name="cooktime" value="{{recipe.cooktime}}"><br><br>
+    <h3>Instruction</h3>
+    <textarea name="instruction"cols="30" rows="10">{{recipe.instructions}}</textarea><br><br>
+    <input type="submit" value="Submit"><br>
+    <a href="/input">Cancel</a>
+    </form>
+
+    {% else %}
+
+    <h2>404 Not Found!</h2><br>
+    <p>Oops, something went wrong. Please <a href="/home">click here</a> to redirect.</p>
+
+    {% endif %}
+</body>
+</html>
